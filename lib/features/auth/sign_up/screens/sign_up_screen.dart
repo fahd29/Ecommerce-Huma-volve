@@ -3,8 +3,6 @@ import 'package:dio/dio.dart';
 import 'package:ecommerce_app_huma_volve/core/network/api_client.dart';
 import 'package:ecommerce_app_huma_volve/features/auth/sign_up/models/signup_req_model.dart';
 import 'package:ecommerce_app_huma_volve/features/auth/sign_up/services/signup_service.dart';
-import 'package:flutter/material.dart';
-import '../../../main_navigation/screens/main_navigation_screen.dart';
 
 import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../core/widgets/primary_button.dart';
@@ -128,7 +126,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         setState(() {
                           isLoading = true;
                         });
-                        final response = await signupService.signUp(
+                        await signupService.signUp(
                           SignupReqModel(
                             email: emailController.text,
                             name: nameController.text,
@@ -138,9 +136,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         setState(() {
                           isLoading = false;
                         });
+                        if (!context.mounted) return;
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text("Signup Successfu! Plz Login"),
+                          const SnackBar(
+                            content: Text("Signup Successful! Please Login"),
                             backgroundColor: Colors.green,
                           ),
                         );
@@ -154,6 +153,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         setState(() {
                           isLoading = false;
                         });
+                        if (!context.mounted) return;
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(e.toString()),

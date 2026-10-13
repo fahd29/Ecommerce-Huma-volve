@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/theme.dart';
-import '../../auth/login/screens/login_screen.dart';
+import 'package:ecommerce_app_huma_volve/features/auth/presentation/screens/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

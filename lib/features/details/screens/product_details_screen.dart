@@ -2,11 +2,11 @@ import 'package:ecommerce_app_huma_volve/core/theme.dart';
 import 'package:ecommerce_app_huma_volve/core/widgets/primary_button.dart';
 import 'package:ecommerce_app_huma_volve/features/details/widgets/color_selector.dart';
 import 'package:ecommerce_app_huma_volve/features/details/widgets/size_selector.dart';
-import 'package:ecommerce_app_huma_volve/features/home/service/models/product_model.dart';
+import 'package:ecommerce_app_huma_volve/features/home/domain/entities/product_entity.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-  final ProductModel product;
+  final ProductEntity product;
 
   const ProductDetailsScreen({super.key, required this.product});
 
